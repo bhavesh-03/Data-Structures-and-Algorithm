@@ -1,3 +1,7 @@
+// Values will go to main first
+// then values will go to initialized function 
+// int the initialized function first the condition will be returned 
+//________________________________________________________________________________________________
 
 #include<iostream>
 #include<bits/stdc++.h>
