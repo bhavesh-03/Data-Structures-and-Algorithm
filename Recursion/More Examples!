@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+
+using namespace std ;
+
+//check weather the array is sorted or not
+/*
+bool sorted(int arr[] , int n ){
+    
+if(n==1){
+    return true ; 
+}
+    bool restarray = sorted(arr+1 , n-1);
+    return(arr[0]<arr[1] && restarray);
+}
+
+
+int main(){
+    int arr[] = {1,2,3,4,5} ;
+    cout<< sorted(arr,5)<<endl;
+    return 0 ;
+}
+ */
+/*
+//Ascending and descending order of array
+void dec(int n){
+    if(n==0){
+        return;
+    }
+    cout<<n<<endl;
+    dec(n-1);
+}
+void inc(int n){
+    if(n==1){
+        cout<<"1"<<endl;
+        return ;
+    }
+
+    inc(n-1) ;
+    cout<< n<<endl ;
+    
+}
+
+int main(){
+    int n;
+    cin>> n ;
+
+    dec(n) ;
+    inc(n) ;
+}
+*/
