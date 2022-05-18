@@ -1,0 +1,32 @@
+//set does not repeat element
+
+
+
+#include <bits/stdc++.h>
+
+using namespace std ;
+
+void display(set<int> s){        //iterative functino
+    set<int> ::iterator iter ;
+    for(iter = s.begin() ; iter!=s.end() ;iter++){
+        cout<< *iter<< " " ;
+    }
+    cout<< endl;
+}
+
+int main(){
+    set<int> s ;
+    s.insert(41);    // to insert
+    s.insert(21);
+    s.insert(21);
+    s.insert(65);
+    s.insert(50);
+    s.erase(21) ;    // to erase
+    cout<< s.size()<<endl;
+    display(s);     //display void function
+
+    if(s.find(50) != s.end()) 
+        cout << "50 is there" << endl; 
+    set<int> :: iterator iter = s.find(50); //geting pointer to 50
+    cout<< *iter <<endl;     
+}
