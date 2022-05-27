@@ -1,3 +1,5 @@
+// BY BHAVESH MANKAR
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -6,8 +8,9 @@ using namespace std;
 // check if element exist before pivote or after pivote
 // apply binary search on corresponding part
 
+// 50 60 70 80 90 10 20 30 40
 
-//pivot is when a[i-1] > a[i]    50 --10-- 20 30 40  
+
 
 int binarySearch(int arr[] ,int start ,int end ,int key){
     if(end<start){
@@ -25,7 +28,7 @@ int findPivot(int arr[] ,int start , int end){
     if(end<start) return -1 ;
 
     int mid = start +(end - mid)/2;
-    
+    //here mid, end, start are index of the array
     if(mid<end && arr[mid] >arr[mid+1])
         return mid+1 ;
     if(mid>start && arr[mid]<arr[mid-1])
@@ -41,8 +44,8 @@ int findkey(int arr[] , int n , int key ){
     if(arr[pivot]==key)   
         return pivot;
     if(arr[0]<key)
-        return binarySearch(arr, 0 ,pivot-1,key);
-    return binarySearch(arr,pivot+1,n-1,key);         
+        return binarySearch(arr, 0 ,pivot-1,key);   // update the array
+    return binarySearch(arr,pivot+1,n-1,key);       //update the array  
 } 
 
 int main(){
