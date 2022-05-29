@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+
+
+using namespace std;
+
+int findfirst(int a[] , int start,int end){
+  if(start>end)
+    return -1;
+
+  int mid = start +(end-start)/2;
+
+  if(a[mid] == 1 && (mid == 0) || a[mid-1]==0)
+    return mid ;
+  else if (a[mid]==0)
+    return findfirst(a,mid+1,end);
+  else
+    return findfirst(a,start,mid-1);
+}
+
+int main(){
+  std::ios_base::sync_with_stdio(true);
+  
+  int n , t;
+  cin >>t;
+
+  while(t--){
+    cin >> n;
+    int a[n];
+    for(int i= 0 ;i<n;i++){
+      cin >> a[i];
+    }
+    int index =findfirst(a,0,n);
+    cout<<index<<endl;
+  }
+  
+  return 0;
+
+}
