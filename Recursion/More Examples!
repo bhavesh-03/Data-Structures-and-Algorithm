@@ -26,7 +26,7 @@ void dec(int n){
     if(n==0){
         return;
     }
-    cout<<n<<endl;
+    cout<<n<<endl;                //first increase then return
     dec(n-1);
 }
 void inc(int n){
@@ -35,7 +35,7 @@ void inc(int n){
         return ;
     }
 
-    inc(n-1) ;
+    inc(n-1) ;             //first decrease then return
     cout<< n<<endl ;
     
 }
