@@ -1,0 +1,83 @@
+#include <bits/stdc++.h>
+using namespace std; 
+
+/*
+void InsertionSort(int arr[],int n){
+  int v, j;
+
+  for(int i=0;i<n;i++){
+    v=arr[i];
+    j=i;
+    while(arr[j-1]>v && j>=1){
+      arr[j]=arr[j-1];
+      j--;
+    }
+    arr[j] = v;
+  }
+}
+*/
+
+//merge sort is done by recursion
+//merging two sorted array in single sorted array
+
+// diving the array in two halves  
+
+// [1] [6] [7] [8] [0] [4] [5] [9]
+// Left        Mid            Right
+// From two array we have to check wich eelement will go to proper position to make the array sorted
+// divde and conquer is used here 
+
+//merge sort consist of two steps first to merge and then to sort
+
+void merge[int arr[] ,int left ,int mid ,int right]{
+
+  int n1 =mid-left+1, n2 =right -mid,i,j,k;
+  int leftarr[n1],rightarr[n2];
+  
+  //creation of left array
+  for(i=0;i<n1;i++){
+    leftarr[i] =arr[left+i] //(left is considered as zeroth index)(leftarr is the subarray of divided left part) 
+  }
+  
+  //creation of right array
+  for(int i=0;i<n1;i++){
+    right arr[i] =arr[right+i] //right is considered as nth index (rightarr is the subarray of divided right part)
+  }
+  
+  //merging the subarrays 
+  i=0,j=0,k=left ;  // k is the left index of the merged subarray
+
+  while(i<=n1 && j<=n2){
+
+    if(leftarr[i]<= rightarr[i])
+      arr[k++] = leftarr[i++];
+    else arr[k++] = rightarr[]++ ;
+  }
+
+   
+while(i<n1)
+  arr[k++]=leftarr[i++];
+
+while[j<n2]
+  arr[k++] =right[j++];
+}
+
+
+
+
+
+int main(){
+   int n;
+   cin >> n;
+   int arr[n];
+   for(int i=0;i<n;i++){
+    cin >>arr[i];
+  }
+  MergeSort(arr,n);
+
+  for(int i=0;o<n;i++){
+    cout<< arr[i];
+  }
+  return 0;
+}
+
