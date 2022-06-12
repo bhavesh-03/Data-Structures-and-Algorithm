@@ -1,6 +1,14 @@
 
 //Insertion Sort
 
+
+// Sorted array --x-- unsorted array
+// while condition check 
+// while condition satisfies only when j is greater than equal to 1 
+
+// Insertion sort is best for partially sorted array 
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
