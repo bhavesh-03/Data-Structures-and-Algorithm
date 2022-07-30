@@ -6,12 +6,13 @@ using namespace std;
 //creation of node
 struct node{
    int data ;
-   struct node * next ;
+   struct node * next ;  //NEXT is the address of next element
 };
 
 //creation of list    //[|DATA|NEXT|]     [NewNode|NEXT]
 struct node * creatList(struct node * head){
-   struct node *newNode, *temp;
+   struct node *newNode, *temp;          //newNode is the node of next element  
+   //temp is variable for transfer/indication of next address 
 
    for(int i=0;i<=5;i++){
       newNode = ( struct node*)malloc(sizeof(struct node)) ;
