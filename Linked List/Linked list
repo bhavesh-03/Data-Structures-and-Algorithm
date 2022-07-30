@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+//Remember head is the address
+
+//creation of node
+struct node{
+   int data ;
+   struct node * next ;
+};
+
+//creation of list    //[|DATA|NEXT|]     [NewNode|NEXT]
+struct node * creatList(struct node * head){
+   struct node *newNode, *temp;
+
+   for(int i=0;i<=5;i++){
+      newNode = ( struct node*)malloc(sizeof(struct node)) ;
+      if(newNode == NULL){
+         return head ;
+      }
+
+      newNode -> data = i ;  
+      newNode->next =NULL ;
+      
+      if (head ==NULL){
+         head= newNode ;
+         temp = head ;
+      }
+      else{
+      temp -> next =newNode ;
+      temp =newNode ; 
+      }
+   }
+   return head ;
+}
+
+//Print of List
+void PrintList(struct node * head){
+   while ( head != NULL){
+      cout << head -> data<<" ";
+      head = head -> next;
+   }
+ }
+ 
+
+//Main funtion
+ int main(){
+   struct node * head =NULL;
+
+   head = creatList(head);
+   PrintList(head) ;
+
+   return 0 ;
+ }
