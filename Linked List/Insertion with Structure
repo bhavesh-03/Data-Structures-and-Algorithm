@@ -1,0 +1,128 @@
+//BHAVESH MANKAR
+//INSERTION OF NODE IN BEGINNING ,END , MIDDLE
+
+#include <bits/stdc++.h>
+ using namespace std ;
+
+//creation of node 
+typedef struct Node{
+   //node will have data and address of next element
+   int data ;   
+   struct Node *next ;
+}Node ;         //rather than calling(struct Node) we will now call it Node only . 
+
+
+//head is taken as global to avoid calling it agian and again
+Node *head= NULL ;
+
+//Insertion in Beginning 
+void insertAtBeg(int data){
+   Node *newNode = (Node*) malloc(sizeof(Node));
+   newNode->data = data;
+   newNode->next =head ;
+   head =newNode;
+}
+
+//Insertion in the end
+void insertAtEnd(int data){
+   Node *newNode = (Node*) malloc(sizeof(Node));
+   newNode->data = data;
+   newNode->next =NULL ;
+   Node *temp=head;
+   //check weather null is empty if yes than new node will be the head node
+   if(temp==NULL){
+      head=newNode ;
+      return;
+   }
+   //traverse until end
+   while(temp->next!=NULL){
+      temp=temp->next;        
+   } 
+   //when while loop wiil be totally traversed then temp of next will define the last element 
+   //so::
+   temp->next=newNode; 
+}
+
+void insertInMiddle(int data,int pos){
+   Node*temp=head;
+   Node *newNode = (Node*) malloc(sizeof(Node));
+   newNode->data = data;
+   newNode->next =NULL ; 
+
+   //to check weather node exist 
+   if(temp==NULL ){
+      head= newNode;
+      return ;
+   }
+
+
+
+   int count  =1 ;
+   //to traverse till the position user has mention 
+   while(count<pos && temp->next!=NULL){
+      count++; 
+      temp = temp->next ;
+   }
+
+   //postion greater than number of linked list
+   //we can also insert at end by temp->next =newNode
+   if(temp->next==NULL){
+      cout<<"INVALID POSITION" ;
+      return;
+   }
+   
+   newNode->next=temp->next; //new node of next will be temp of next 
+   temp->next=newNode;
+}
+
+//To Print our Linked List
+void display(){
+   Node *temp ;
+   temp = head;
+   //temp will firstly point to next of head node than it will check if its null or not if its not null than it will print the data and temp will be than moved to temp of next 
+   while(temp!=NULL){
+      cout<<temp->data<<" ";
+      temp = temp ->next ; 
+   }
+}
+
+
+int main(){
+   int t ; 
+   cin >> t ;
+   while(t--){
+      int n ;
+      cin >> n;
+      int data ;
+      head=NULL;
+      //insert at beginning
+      for(int i = 0 ;i<n;i++){
+         cin >> data;
+         insertAtBeg(data) ;
+      }
+      cout<<"Insert at beginning : " ;
+      display() ;
+      cout<<endl;
+
+      //insert at end
+      for(int i = 0 ;i<n;i++){
+         cin >> data;
+         insertAtBeg(data) ;
+      }
+      cout<<"Insert at End : " ;
+      display() ;
+      cout<<endl; 
+
+      //insert in middle
+      int pos ;
+      cin >> pos ;
+      cin >> data;
+      insertInMiddle(data,pos) ;
+      cout<<"Insert at Pos : "<<pos<<" ";
+      display();
+      cout<<endl;
+      
+      
+   }
+   return 0 ; 
+ }
