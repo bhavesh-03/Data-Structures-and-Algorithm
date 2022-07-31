@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+class Sllnode{
+   public:
+   int data;
+   Sllnode *next ;
+   Sllnode(int data){
+      this->data = data;
+      this->next = nullptr;
+   }
+};
+
+
+class Sll{
+   public:
+   Sllnode *head ;
+   Sll(){
+      this->head=nullptr ;
+   }
+   void insertAtbegin(int data){
+      Sllnode *newNode = new  Sllnode(data) ;
+      if(head==nullptr){
+          head= newNode ;
+      }else{
+         newNode->next=head ;
+         head = newNode;
+      }
+
+   }
+
+   void insertAtEnd(int data){
+      Sllnode *newNode = new Sllnode(data) ;
+      Sllnode *temp  =head ;
+      if(temp==nullptr){
+         head=newNode ;
+      }else{
+         while(temp->next !=nullptr){
+            temp= temp->next ;
+         }
+         temp->next=newNode ;
+      }
+   }
+   void insertAtMid(int data,int pos){
+      Sllnode *node=new Sllnode(data);
+      Sllnode *temp =head ;
+      if(temp==nullptr){
+         head=node ;
+      }else{
+         int count = 1 ;
+         while(count<pos){
+            count++;
+            temp = temp->next;
+         }
+         node->next=temp->next ;
+         temp ->next =node ;
+
+      }
+   }
+};
+
+void display(Sllnode *head){
+    Sllnode* temp=head;
+    while(temp!=nullptr){
+      cout<<temp->data<<" " ;
+      temp = temp->next;
+    }
+    cout<<endl;
+}
+
+int main(){
+   int t;
+   cin >> t;
+   while(t--){
+      Sll *llist =new Sll();
+      int n ;
+      cin >>n ;
+      for(int i = 0 ;i<n;i++){
+         int data ;
+         cin >> data ;
+         llist->insertAtbegin(data);
+      }
+      cout<<"Linked list insertion at beginning : " ;
+      display(llist->head);
+
+      Sll *slist = new Sll();
+      for(int i = 0 ;i<n;i++){
+         int data ;
+         cin >> data ;
+         slist->insertAtEnd(data);
+      }
+      cout<<"Linked list insertion at End : " ;
+      display(slist->head);
+
+      int pos ,data;
+      cin >> pos>>data;
+      cout<<"Insert after pos in llist";
+      llist->insertAtMid(data,pos);
+      display(llist->head);
+ 
+      cout<<"Insert after pos in slist";
+      slist->insertAtMid(data,pos) ;
+      display(slist->head) ;
+   }
+   return 0 ;
+}
