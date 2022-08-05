@@ -1,0 +1,140 @@
+//Bhavesh Mankar
+//Deletion of linked List
+#include <bits/stdc++.h>
+#define lli long long int
+#define li long int
+#define ld long double
+using namespace std;
+
+
+typedef struct Node {
+    int data;
+    struct Node*next ;
+}Node;
+
+Node *head =NULL;
+
+//for creation of linked list
+void insertAtBeg(int data){
+    Node* newnode = (Node *)malloc(sizeof(Node));
+    newnode->data =data;
+    newnode->next =head;
+    head=newnode;
+}
+
+void deleteAtbeg(){
+    Node *temp = head;
+
+    //No element
+    if(temp =NULL){
+        cout<<"Linked list is empty"<<endl;
+        return ;
+    }
+    head = head->next;
+    free(temp);
+}
+
+
+void deleteAtend(){
+
+    //initialze head as temp
+    Node *temp =head ;
+
+    //NO element
+    if(temp==NULL){
+        cout<<"Linked list is empty"<<endl;
+        return;
+    }
+
+    //only one element
+    //if there is only one element then the temp will point NULL   head [data|NULL] 
+    if(temp->next==NULL){
+        free(temp);
+        return ;
+    }
+
+    //second last node becomes temp
+    while(temp->next->next!=NULL){
+       temp=temp->next;
+    }
+    //last node becomes temp1
+    Node* temp1 =temp->next ;
+    //second last node as NULL
+    temp->next=NULL;
+    //free up last element
+    free(temp1);
+}
+
+void deleteAtMid(int pos){
+    //initialze head as temp
+    Node *temp =head ;
+
+    //NO element
+    if(temp==NULL){
+        cout<<"Linked list is empty"<<endl;
+        return;
+    }
+
+    //only one element
+    //if there is only one element then the temp will point NULL   head [data|NULL] 
+    if(temp->next==NULL){
+        head =NULL;
+        free(temp);  
+        return ;
+    }
+    int count =1 ;
+    while(count< pos-1){
+        count++;
+        temp = temp->next ;
+    }
+    Node * temp1 = temp->next;
+    temp->next =temp1->next ;
+    temp1->next=NULL;
+    free(temp1);
+}
+
+
+void display(){
+    Node *temp ;
+    temp =head ;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+   int t ;
+   cin >> t;
+   while(t--){
+      int n ; 
+      cin >> n ;
+      int data;
+      for(int i=0;i<n;i++){
+        cin >> data;
+        insertAtBeg(data);
+      }
+      cout<<"Inserted From beg:" ;
+      display();
+      cout<<endl;
+      
+      cout<<"After Delete at beginning : ";
+      deleteAtbeg();
+      display();
+      cout<<endl;
+
+      cout<<"After Delete at End : ";
+      deleteAtend();
+      display();
+      cout<<endl;
+
+      int pos ;
+      cin >> pos;
+      cout<<"After Delete at pos : " ;
+      deleteAtMid(pos);
+      display();
+      cout<<endl;
+   }
+   return 0 ;
+}
