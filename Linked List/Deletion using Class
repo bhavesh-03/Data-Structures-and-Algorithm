@@ -1,0 +1,146 @@
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+//consist logical error therfore getting wrong answer
+
+
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std ;
+
+class sllNode{
+    public:
+    int data;
+    sllNode *next ;
+    sllNode(int node_data){
+        this->data= node_data;
+        this->next = nullptr ;
+    }
+};
+class SLL {
+    public:
+    sllNode *head;
+    SLL(){
+        this->head =nullptr ;
+    }
+    void insertAtBeg(int node_data){
+        sllNode *node = new sllNode(node_data);
+        if(head=nullptr)
+          head=node;
+        else{
+            node->next=head ;
+            head=node;
+        }  
+     }
+     void delnodeAtBeg(){
+        sllNode*temp =head;
+        if(temp==head){
+            cout<<"Linked List is Empty";
+            return ;
+        }
+        head = head->next ;
+        free(temp);
+     }
+     void delnodeAtEnd(){
+        sllNode*temp=head;
+        if(temp==head){
+            cout<<"Linked list is Empty";
+            return ;
+        }
+        if(temp->next==NULL){
+            head =NULL;
+            free(temp);
+            return ;
+        }
+        while(temp->next->next!=NULL){
+            temp=temp->next;
+        }
+        sllNode *temp1 =temp->next;
+        temp->next=NULL ;
+        free(temp1) ;
+     }
+
+    void delAtMid(int pos){
+        sllNode*temp=head;
+        if(temp==head){
+            cout<<"Linked list is Empty";
+            return ;
+        }
+        if(temp->next==NULL){
+            head =NULL;
+            free(temp);
+            return ;
+        }
+        int count = 1 ;
+        while(count<pos-1){
+            count++ ;
+            temp=temp->next;
+        }
+        sllNode *temp1 =temp->next ;
+        temp->next =temp1->next ;
+        temp1->next=NULL;
+        free(temp1);
+    }
+};
+
+
+void printLinkedlist(sllNode*head){
+    sllNode*temp =head ;
+    while(temp!=nullptr){
+        cout<<temp->data<<" ";
+        temp=temp->next ;
+    }
+    cout<<endl;
+}
+
+
+int main(){
+    int t;
+    cin >> t ;
+    while(t--){
+        SLL*llist =new SLL();
+        int n ;
+        cin >> n;
+        for(int i= 0 ;i<n;i++){
+            int data;
+            cin >> data ;
+            llist->insertAtBeg(data) ;
+        }
+        cout<<"Insert at beg: ";
+        printLinkedlist(llist->head) ;
+        cout<<endl;
+
+        cout<<"After del. at beg. : ";
+           llist->delnodeAtBeg();
+           printLinkedlist(llist->head); 
+           cout<<"\n";
+        
+
+        cout<<"After del. at END.: "; 
+           llist->delnodeAtEnd();
+           printLinkedlist(llist->head); 
+           cout<<"\n";
+        
+
+        int pos;
+        cin >> pos;
+        cout<<"After delete at pos. : " ;
+        llist->delAtMid(pos) ;
+        printLinkedlist(llist->head);
+
+
+    }
+}
