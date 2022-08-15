@@ -1,0 +1,49 @@
+//Stack
+
+//Bhavesh Mankar
+
+//Stack is a data structure used for storing data in a order in which data arrives taken away is important
+
+
+//insertion and deletion can be done in one end only
+
+//Last on first out
+//first in last out
+//LIFO
+
+//! Used in :
+/*
+* Balancing the bracket using stack
+* Infix and postfix:
+*  a+b --infix
+*   ab+  --postfix
+* evaaluation of postfix
+* Implementatoin of calls (Recursion) 
+* Page visisted history 
+* Undo (sequence of text in a word file)
+* Matching tag in html xml
+* tree traversing  alogortihm 
+*/
+
+// !! Stack is an abstract data type '
+// ? what is abstract data type ?
+// *  abstract data type is a type for object whose behavior is defined by a set of VALUES and set of OPERATION.
+
+//in abstract data type we are least interested in the implementation 
+//We are not interested in how is it done.
+
+
+//*  We can also consider it as a black box as it is doing the things that we wanted but we are not intereasted how it is done
+// eg: integer is a abstract data type,
+
+ // ! operation with stack ;
+
+//POP : Removing an element from the top 
+//PUSH : Inserting an element on the top of stack 
+//top : top most element
+//size : no of element in the stack
+//isEmptyStack() , isFullStack() ;
+
+// implementation of stack can be done by array or linkedlist
+
+
