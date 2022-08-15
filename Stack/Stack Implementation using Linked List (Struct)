@@ -1,0 +1,75 @@
+//Bhavesh Mankar
+
+
+#include<bits/stdc++.h>
+using namespace std ;
+
+typedef struct Node {
+    int data ;
+    struct Node *next ;
+}Node ;
+
+Node *head =NULL ;
+
+int size = 0;
+
+//function to push ;
+void push (int data){
+    Node *newNode = (Node*)malloc(sizeof(Node)) ;
+    if(!newNode){
+        cout<<"Heap size overflow" ;
+        return ;
+    }
+    newNode->data =data ;
+    newNode->next= head;
+    head=newNode;
+    size++ ;
+}
+
+int isEmpty(){
+    return head==NULL;
+}
+
+//function to print top of the stack
+int peek(){
+    if(isEmpty()){
+        cout<<"Stack is empty"<<endl;
+        return -1 ;
+    }
+    return head->data;
+}
+
+int pop(){
+    Node*temp;
+    if(head ==NULL){
+        cout<<"Stack is underflow";
+        return -1 ;
+    }
+    int ele =head->data;
+    temp=head;
+    head=head->next;
+    size--;
+    free(temp);
+    return ele ;
+}
+int sizefunction(){
+    return size ;
+}
+
+int main(){
+    int n ;
+    cin >> n;
+    for(int i=0;i<n;i++){
+        int ele ;
+        cin >>ele ;
+        push(ele);
+    }
+    cout<<"Top of the stack "<<peek()<<endl;
+    cout<<"Size of the stack "<<sizefunction()<<endl;
+    cout<<"Poping all the Element "<<endl;
+    for(int i =0;i<n;i++){
+        cout<<pop()<<endl;
+    }
+    cout<<"Size of stack is "<<sizefunction()<<endl;
+    return 0;
+}
