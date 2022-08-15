@@ -1,0 +1,112 @@
+//! Impelmentation of 
+//*push /pop
+//* top,isEmptyStack()
+//* isfullStack()
+
+//using array(structure) 
+
+#include <bits/stdc++.h> 
+using namespace std ;
+
+typedef struct stack {
+    int capacity ;
+    int top ;
+    int *arr;
+}Stack;
+
+//to initiize a stack;
+//capacity will be taken from the user
+Stack *initiizeStack (int capacity){
+    Stack *st =(Stack*)malloc(sizeof(Stack));
+    st->capacity=capacity;
+    st->top =-1 ;
+    st->arr =(int*)malloc(sizeof(int)*capacity);
+    return st ;
+}
+
+// function to return size of the stack
+
+int size(Stack *st){
+    return st->top+1;
+}
+
+//fucntion to check if the stack is empty or not
+
+int isEmptyStack(Stack *st){
+    return st->top==-1;
+}
+
+//function if capacity is full or not ;
+
+int isfullStack(Stack *st){
+    return st->top+1 ==st->capacity ;
+}
+
+//functio to push an element in a stack ;
+
+void push(Stack  *st,int data){
+    if(isfullStack(st)){
+        cout<<"overflow" ;
+        return ;
+    }
+    st->top=st->top+1;
+    st->arr[st->top]=data ;
+    // ! arr[st->top] will give data the first place
+}
+
+int peek(Stack *st){
+   if(isEmptyStack(st)){
+    cout<<"Stack is empty"<<endl ;
+    return -1 ;
+   }
+   return st->arr[st->top];
+}
+
+//function to pop top element from the top
+
+int pop(Stack *st){
+    if(isEmptyStack(st)){
+        cout<<"under flow"<<endl;
+        return -1 ;
+    }
+     int ele = st->arr[st->top];
+    st->top =st->top-1 ;
+    return ele ;
+}
+
+
+int main(){
+    int capacity; //max capacity ;
+    int n ;
+    cin >>capacity>>n ;
+    Stack *st =initiizeStack(capacity) ;
+
+    for(int i=0;i<n;i++){
+        int ele ;
+        cin >>ele;
+        push(st,ele);
+    }
+
+    cout<<"top of stack ;"<<peek(st)<<endl;
+    cout<<"size of stack "<< size(st)<<endl;
+
+    if(isEmptyStack(st)){
+        cout<<"stack is empty"<<endl;
+    }else
+        cout<<"stack is not empty"<<endl;
+
+    cout<<"Popping all the element" <<endl;
+
+    for(int i = 0;i<n;i++){
+        cout<<pop(st)<<endl;
+    }    
+    
+    cout<<"size of stack" << size(st)<<endl;
+
+    if(isEmptyStack(st)){
+        cout<<"stack is empty"<<endl;
+    }else
+        cout<<"stack is not empty"<<endl;
+   
+
+}
