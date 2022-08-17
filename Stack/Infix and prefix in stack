@@ -1,0 +1,44 @@
+//Infix to prefix ;
+
+// !(a+b)*c  -> infix   
+// * postfix is also called as reverse polish notation ;
+
+// ! ab+c*  postfix 
+
+//*
+// a*b+c/d
+// postfix notation -- ab* cd/+
+// prefix notation -- +*ab/cd 
+
+// a*(b+c)/d
+// Postfix notatoin --  a bc+*d/
+//infix notation -- /*a+bc d
+
+//a*(b+c/d)
+//postfix notation --    abcd/+*
+//Prefix notation --   *a+b/cd
+
+
+//* Rules for infix to postfix using stack
+
+//! a.create a stack 
+//! b.for each character t in input 
+//! t is operand then keep as it is eg(varaibles).
+//! operator are put in stack by checking higher priority in stack i)lower precidence cannot be sit on higher presidance operator.  precedence ( / > * > + > -)
+
+
+//!! INFIX TO POSTFIX USING STACK
+
+eg::
+a*b-(c+d)+e
+ 
+// * ans: 
+A B* C D+- E+  
+
+eg::
+a*(b+c*d-e)+f*g
+
+//* ans:
+ABCD*+E-*FG*+
+
+
