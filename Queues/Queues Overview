@@ -1,0 +1,16 @@
+//Queues
+
+//Queues is a data structure for storing data;
+
+//first person to get the ticket is the first person in the queue
+//And the addition of people will be from the back of the data 
+
+//Queue is the first in first out element
+
+// ! enqueue() --  insertion in queue.
+//! dequeue() --  deletion in queue.
+//* element/pointer/variable is inserted is called rear;
+//* element/pointer/variable is deleted is called front;
+   1 2 3 4 5  <- insertion 
+   ^
+deletion
