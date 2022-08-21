@@ -1,0 +1,102 @@
+#include<bits/stdc++.h>
+using namespace std ;
+
+/*
+! for enqueue operation 
+
+int queue [max]
+front =-1 ; read =-1(no element in the queue)
+void insert(int item)(insert item )
+* 1) first check 
+
+rear = (rear+1) % max
+* if(rear ==0 && front == 0) then places are already filled ie. 0th element is already full 
+* if(front == rear) then we dont have space;
+* if front = -1
+
+! time complexity for 1 enque here will be  O(n)
+*/
+
+
+typedef struct Queue {
+    int front ,rear ;
+    int size ;
+    int *arr;
+    int capacity;
+}Queue;
+
+//function to create queue
+Queue* createqueue(int capacity){
+    Queue *qu = (Queue*)malloc(sizeof(Queue));
+    qu->capacity=capacity;
+    qu->front=0;
+    qu->size=0;
+    qu->rear =capacity-1;
+    qu->arr=(int*)malloc(qu->capacity *sizeof(int));
+}
+
+//function to check if queue is full or no 
+int isfull(Queue *queue){
+    return queue->size==queue->capacity;
+}
+
+//function to check if queue is empty or not
+int isempty(Queue *queue){
+    return queue->size==0;
+}
+
+//funtion for Enqueue
+//Enqueue is from rear
+void enqueue(Queue *queue,int data){
+    if(isfull(queue)){
+        cout<<"Queue is full";
+        return ;
+    }
+    // rear = (rear+1) % max
+    queue->rear=(queue->rear+1)%(queue->capacity);
+    queue->arr[queue->rear]=data;
+    queue->size =queue->size+1;
+}
+
+//Funtion to get front of queue
+int front(Queue *queue){
+    if(isempty(queue)){
+        return INT_MIN;
+    }
+    return queue->arr[queue->front];
+}
+
+//Funtion to get rear of queue
+int rear(Queue *queue){
+    if(isempty(queue)){
+        return INT_MIN;
+    }
+    return queue->arr[queue->rear];
+}
+
+//functio to display 
+void display(Queue *queue){
+    for(int i=0;i<queue->size;i++){
+        cout<<queue->arr[(queue->front+i)%(queue->capacity)]<<" ";
+        cout<<endl;
+    }
+}
+
+
+int main(){
+    int capacity;
+    int n;
+    cin>>capacity>>n;
+    Queue *queue = createqueue(capacity);
+
+    for(int i=0;i<n;i++){
+        int ele;
+        cin >>ele;
+        enqueue(queue,ele);
+    }
+    display(queue);
+    cout<<"Font element : "<<front(queue)<<endl;
+    cout<<"Rear element : "<<rear(queue)<<endl;
+
+    return 0;
+}
