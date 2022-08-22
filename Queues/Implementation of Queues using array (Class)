@@ -1,0 +1,98 @@
+#include<bits/stdc++.h>
+using namespace std ;
+
+/*
+! for enqueue operation 
+
+int queue [max]
+front =-1 ; read =-1(no element in the queue)
+void insert(int item)(insert item )
+* 1) first check 
+
+rear = (rear+1) % max
+* if(rear ==0 && front == 0) then places are already filled ie. 0th element is already full 
+* if(front == rear) then we dont have space;
+* if front = -1
+
+! time complexity for 1 enque here will be  O(n)
+*/
+
+class Queue{
+    int front,rear;
+    int size;
+    int capacity;
+    int *arr;
+    public:
+    Queue(int capacity){
+        this->capacity =capacity;
+        front = 0;
+        size =0;
+        rear=capacity -1;
+        arr =new int[capacity];
+    }
+    //function to check whether queue is full
+    int isfull(){
+        return size == capacity ;
+    }
+    //function to check whether queue is empty
+
+    int isempty(){
+        return size = 0;
+    } 
+
+    void enqueue(int data){
+        if(isfull()){
+            cout<<"Queue is full" ;
+            return ;
+        }
+        rear =(rear+1)%capacity;
+        arr[rear]=data;
+        size++;
+    }
+
+    //function to get front of queue
+    int frontele(){
+        if(isempty()){
+            cout<<"Queue is empty";
+            return INT_MIN;
+        }
+        return arr[front];
+    }
+
+    //functin to get rear element
+    int rearele(){
+        if(isempty()){
+            cout<<"Queue is empty";
+            return INT_MIN;
+        }
+        return arr[rear];
+    }
+
+    void display(){
+        for(int i=0;i<size;i++){
+            cout<<arr[(front+i)%capacity]<<" ";
+        }
+        cout<<endl;
+    }
+};
+
+int main(){ 
+    int capacity;
+    int n;
+    cin >>capacity>>n;
+
+    Queue queue1(capacity);
+    Queue queue2(capacity);
+   
+   for(int i=0;i<n;i++){
+    int ele;
+    cin >>ele;
+    queue1.enqueue(ele);
+   }
+   queue1.display();
+   queue1.enqueue(6);
+   queue1.display();
+
+    return 0;
+}
+
