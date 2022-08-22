@@ -1,0 +1,109 @@
+#include<bits/stdc++.h>
+using namespace std ;
+
+/*
+! dequeue is removing the element
+front error
+* if queue is empty then we cannot dequeue
+* if only one element is there in queue then front == rear and rear =front =-1;
+* for each deque operation time complexity is constant
+*/
+
+class Queue{
+    int front,rear;
+    int size;
+    int capacity;
+    int *arr;
+    public:
+    Queue(int capacity){
+        this->capacity =capacity;
+        front = 0;
+        size =0;
+        rear=capacity -1;
+        arr =new int[capacity];
+    }
+    //function to check whether queue is full
+    int isfull(){
+        return size == capacity ;
+    }
+    //function to check whether queue is empty
+
+    int isempty(){
+        return size = 0;
+    } 
+
+    void enqueue(int data){
+        if(isfull()){
+            cout<<"Queue is full" ;
+            return ;
+        }
+        rear =(rear+1)%capacity;
+        arr[rear]=data;
+        size++;
+    }
+
+    int dequeue(){
+        if(isempty()){
+            cout<<"Queue is empty"<<endl;
+            return INT_MIN;
+        }
+
+        int data =arr[front];
+        front=(front+1)%capacity;
+        
+        size--;
+        return data;
+    }
+
+    //function to get front of queue
+    int frontele(){
+        if(isempty()){
+            cout<<"Queue is empty";
+            return INT_MIN;
+        }
+        return arr[front];
+    }
+
+    //functin to get rear element
+    int rearele(){
+        if(isempty()){
+            cout<<"Queue is empty";
+            return INT_MIN;
+        }
+        return arr[rear];
+    }
+
+    void display(){
+        for(int i=0;i< size;i++){
+            cout<<arr[(front+i)%capacity]<<" ";
+        }
+        cout<<endl;
+    }
+};
+
+int main(){ 
+    int capacity;
+    int n;
+    cin >>capacity>>n;
+
+    Queue queue1(capacity);
+    Queue queue2(capacity);
+   
+   for(int i=0;i<n;i++){
+    int ele;
+    cin >>ele;
+    queue1.enqueue(ele);
+   }
+   cout<<queue1.dequeue()<<endl;
+   queue1.display();
+   //queue1.enqueue(6);
+   //queue1.display();
+    
+    cout<<"front element"<<endl;
+    cout<<queue1.frontele()<<endl;
+    
+    queue1.display();
+    queue1.display();
+
+    return 0;
+}
