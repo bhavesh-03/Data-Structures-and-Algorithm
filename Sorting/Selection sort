@@ -1,5 +1,6 @@
 //Bhavesh 
 //Selection sort
+//Taking minimum and swaping it to first place
 
 #include<bits/stdc++.h>
 using namespace std;
