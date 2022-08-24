@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std ;
+
+
+class Node {
+    public:
+    int data;
+    Node *next;
+    Node(int data){
+        this->data;
+        next=NULL;
+    }
+};
+
+class Queue{
+    public:
+    Node *front , *rear ;
+    Queue(){
+         front = rear = NULL;
+    }
+    
+    void Enqueue(int data){
+        Node*temp=new Node(data);
+        if(rear==NULL){
+            front =rear =temp ;
+        }
+        rear->next = temp ;
+        rear = temp;
+    }
+
+    int Dequeue(){
+        if(front==NULL){
+            return INT_MAX;
+        }
+        Node *temp =front ;
+        front = front->next ;
+        if(front==NULL){
+            front=rear=NULL;
+        }
+
+        int data = temp->data;
+        free( temp);
+        return data;
+    }
+    
+};
+
+int main(){
+    Queue queue;
+    int n;
+    cin >>n;
+    for(int i=0;i<n;i++){
+        int ele;
+        cin >>ele;
+        queue.Enqueue(ele);
+
+    }
+    cout<<queue.Dequeue()<<endl;
+    cout<<queue.Dequeue()<<endl;
+    queue.Enqueue(100);
+
+}
+
+
+
+
+
+int main();
