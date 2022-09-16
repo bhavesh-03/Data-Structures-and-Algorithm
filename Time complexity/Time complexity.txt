@@ -1,0 +1,53 @@
+
+Time complexity :
+Always consider worst case in mind in time complexity 
+
+
+
+Iterations :
+int x , int sum = 0 ; 
+*****************
+To find time complexity we need number of iterations
+This time complexities like int x, int y ,int sum  are constat time complexities. they take O(1) time complexity.
+
+eg : 
+1)int x ;
+int y ;
+int z ;
+
+Time complexity O(3);
+
+2)while(n){
+}
+Time complexity O(n) ;
+
+We always consider big time comeplxity: O(n) +O(1) == O(n) 
+
+**********
+
+O(n) +O(N) === O(N) ;
+
+Constat time coplexities are alwyas said as O(1) ;
+
+*******
+IMP:::::
+Number of test cases will define number of iterations :::
+
+10^7 to 10^8 iteration in online coding websites
+10^8 iterations in 10 sec ;
+
+** O(n) ;
+
+for loops,while loops
+
+Nested for loop O(n^NestedLoops)
+
+
+**O (LogN) 
+Good complexity ((Every coder should try to make O(N) to O(Log(N))))
+while(n>0){
+ n=n/2;
+  count++ ;//to check number of iterations;
+}
+
+
