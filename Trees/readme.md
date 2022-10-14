@@ -51,23 +51,3 @@
 
 ---
 
-## Problems:
-
-[001 - Print Tree - Recursively](./code/001-Print-Tree-Recursive.cpp)<br>
-[002 - Print Tree - Level Order Traversal](./code/002-Print-Tree-Level-Order-Traversal.cpp)<br>
-[003 - Count Number of Nodes](./code/003-Count-Number-Of-Nodes.cpp)<br>
-[004 - Find Sum of Nodes](./code/004-Find-Sum-Of-Nodes.cpp)<br>
-[005 - Maximum Data Node](./code/005-Max-Data-Node.cpp)<br>
-[006 - Find Height](./code/006-Find-Height.cpp)<br>
-[007 - Count Leaf Nodes](./code/007-Count-Leaf-Nodes.cpp)<br>
-[008 - Print PreOrder, PostOrder](./code/008-Print-Pre-Post-Traversal.cpp)<br>
-[009 - Contains X](./code/009-Contains-X.cpp)<br>
-[010 - Count Nodes](./code/010-Count-Nodes.cpp)<br>
-[011 - Nodes With Maximum Child Sum](./code/011-Node-With-Max-Child-Sum.cpp)<br>
-[012 - Structurally Identical](./code/012-Structurally-Identical.cpp)<br>
-[013 - Next Larger](./code/013-Next-Larger.cpp)<br>
-[014 - Second Largest Element](./code/014-SecondLargest-Element.cpp)<br>
-[015 - Replace With Depth](./code/015-Replace-With-Depth.cpp)<br>
-
-
----
