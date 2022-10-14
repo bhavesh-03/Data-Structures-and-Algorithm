@@ -1,0 +1,41 @@
+// // * intro to hasing 
+
+// // Searching is most optimum in hasmap
+
+// unsorteda array -- linear search (logn)
+// Binary tree O(n)
+// linkedlist O(n)
+// sorted array O(n)
+
+// To minimize searching hashing was introduced with o(1) time
+
+// Direct Address table :: 
+
+// 50 records will have 50 keys value 
+// Keys represent index array
+
+// Disadvantages of DAT :: 
+// Storing small array we need big value 
+
+// arr = {2,2,3}
+
+#include <bits/stdc++.h>
+
+using namespace std ;
+
+int main(){
+    int a[15] ;
+    for(int i = 0 ; i<15;i++){
+        cin>>a[i] ;
+    }
+  int freq[15] = {0} ;
+    for(int i=0;i<15;i++){
+        freq[a[i]]++ ;
+    }
+    for(int i=0;i<15;i++){
+       cout<<i<<" "<<freq[i] <<endl;
+    }
+    return 0 ;
+  
+}
+
