@@ -1,0 +1,72 @@
+// Post Order
+// Left   right   root 
+// Time complexity   o(n)
+// Space complexity   o(1)   --
+// Space complexity   o(1)   -- Recursive Code
+
+// Inorder 
+// Left   Root   Right
+
+// Tree Traversal
+
+// Pre order    root   left    right
+// Inorfer      Left   root    right
+// Post order   Left   right   Root
+                                                            
+// // Preorder Traversal
+
+#include <bits/stdc++.h> 
+
+using namespace std ;
+
+typedef struct Node {
+	int data ;
+	Node *left ; 
+    Node * right ;
+};
+
+Node *root = NULL ;
+Node* createNode(int data) {
+	Node *newNode = (Node*)malloc(sizeof(Node)) ;
+	newNode->data=data;
+	newNode->left =NULL ; 
+	newNode->right =NULL ;
+
+	return newNode ;
+}
+
+
+
+void LevelOrderTraversal(Node *node){
+	if(node==NULL){
+		return ; 
+	}
+	queue<Node*> qnode ;
+	qnode.push(node) ;
+	while(!qnode.empty()){
+		Node*temp = qnode.front() ;
+		qnode.pop() ;
+		cout<<temp->data<< " " ;
+		if(temp->left!=NULL){
+             qnode.push(temp->left) ;
+		}
+	    if(temp->right!=NULL){
+             qnode.push(temp->right) ;
+		}
+	}
+ }
+int main(){
+	root = createNode(7) ;
+	root->left=createNode(6) ;
+	root->right=createNode(5) ;
+	root->left->left= createNode(4);
+	root->left->right=  createNode(3) ;
+	root->right->left=createNode(2) ;
+
+	cout<<"LevelOrder Traversal  " ;
+	cout<<endl;
+	LevelOrderTraversal(root);
+	cout <<endl;;
+
+	return 0 ;
+}
