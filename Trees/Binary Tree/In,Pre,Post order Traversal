@@ -1,3 +1,12 @@
+// Post Order
+// Left   right   root 
+// Time complexity   o(n)
+// Space complexity   o(1)   --
+// Space complexity   o(1)   -- Recursive Code
+
+// Inorder 
+// Left   Root   Right
+
 // Tree Traversal
 
 // Pre order    root   left    right
@@ -35,7 +44,21 @@ void PreorderTraversal(Node *node){
 	}
 }
 
+void InorderTraversal(Node *node){
+	if(node!=NULL){
+		InorderTraversal(node->left) ;
+		cout<<node->data<<" ";
+		InorderTraversal(node->right) ;
+	}
+}
 
+void PostorderTraversal(Node *node){
+	if(node!=NULL){
+		PostorderTraversal(node->left) ;		 
+		PostorderTraversal(node->right) ;
+		cout<<node->data<<" " ;		 
+		}
+}
 int main(){
 	root = createNode(5) ;
 	root->left=createNode(6) ;
@@ -46,6 +69,18 @@ int main(){
 	cout<<"Preordered Traversal" <<endl;
 
 	PreorderTraversal(root) ;
+	cout<<endl;;
+
+	cout<<"Inrder Traversal  " ;
+	cout<<endl;
+	InorderTraversal(root);
+	cout <<endl;;
+
+    cout<<"PostOrder Traversal  " ;
+	cout<<endl;
+	PostorderTraversal(root);
+	cout <<endl;;
+
 	return 0 ;
 
 }
