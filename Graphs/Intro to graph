@@ -1,0 +1,27 @@
+ ***Graphs***
+
+Types of graphs:
+1)Directed(has arrow)  
+2)Undirected graphs (dont have arrows)
+
+**Grpahs has nodes
+Horizontal line is know as edge 
+
+
+**Cycles in a Grpahs
+Start and end should be the same node in cyclic graph
+
+Binary tree is also know as Graphs as it is not required for a graph to be circular
+
+Path contains a lot of nodes and each of them is reachable
+
+
+**Degree 
+for Undirected Grpahs : number of edges attach to it
+
+**Property of degree : total degree = 2*Number of edges.
+
+Directed graph :: Indegree and Outdegree
+Indegree:: incoming edges
+
+Every edge will have weight but if not assigned then it will be unit weight ie. 1
