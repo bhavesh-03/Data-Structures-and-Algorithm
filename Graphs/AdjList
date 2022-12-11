@@ -18,3 +18,28 @@ int main()
     }
     return 0;
 }
+
+For directed graphs, if there is an edge between u and v it means the edge only goes from u to v, i.e., v is the neighbor of u, but vice versa is not true. 
+The space needed to represent a directed graph using its adjacency list is E locations, where E denotes the number of edges, as here each edge data appears only once.
+
+//For directed Graph
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    // adjacency list for directed graph
+    // time complexity: O(E)
+    vector<int> adj[n+1];
+    for(int i = 0; i < m; i++)
+    {
+        int u, v;
+        // u —> v
+        cin >> u >> v;
+        adj[u].push_back(v);
+    }
+    return 0;
+}
