@@ -14,7 +14,8 @@ heapify(array ,size,i){
 
     if(largest!i){
         swap(arr[i],arr[largest]) ;
+        heapify(arr,N,largest) ;
     }
 
-    heapify(arr,N,largest) ;
+    
 }
