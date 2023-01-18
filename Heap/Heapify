@@ -1,4 +1,5 @@
-//Heapify 
+// Heapify 
+// We heapify to get root element as max element
 
 heapify(array ,size,i){
     int largest = i  ;
