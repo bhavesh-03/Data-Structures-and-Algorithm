@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std ;
+ 
+void solve(int idx,vector<int> tmp,int s,int sum,std::vector<int> v,int n){
+    if(idx==n){
+        if(s==sum){
+            for(auto it: tmp){
+                cout<<it<<" ";
+            }
+            cout<<endl;
+        }
+        return ;
+    }
+    tmp.push_back(v[idx]);
+    s+=v[idx];
+    solve(idx+1,tmp,s,sum,v,n);
+    s-=v[idx];
+    tmp.pop_back();
+    solve(idx+1,tmp,s,sum,v,n);
+
+}
+
+int main(){
+    int n;
+    cin>>n;
+    std::vector<int> v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i] ;
+    }
+    int sum ;
+    cin>>sum;
+    vector<int>tmp ;
+    solve(0,tmp,0,sum,v,n);
+}
