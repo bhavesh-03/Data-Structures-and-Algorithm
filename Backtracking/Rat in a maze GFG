@@ -1,0 +1,35 @@
+// https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1
+
+private:
+    void solve(int i,int j,vector<vector<int>> &m,int n,string s){
+        if(i<0 || i>=n || j<0 || j>=n || m[i][j]==0 ){
+            return ;
+        }
+        if(i==j&& i==n-1 ){
+            ans.push_back(s);
+            s="";
+            return ;
+        }
+        // As we can travel only one time we must assign it to zero
+        m[i][j]=0;
+        solve(i,j+1,m,n,s+"R");
+        solve(i,j-1,m,n,s+"L");
+        solve(i+1,j,m,n,s+"D");
+        solve(i-1,j,m,n,s+"U");
+        // As we again have to come back to perform operations we will again assign it to 1
+        m[i][j]=1; 
+    }
+    public:
+    vector<string>ans; 
+    vector<string> findPath(vector<vector<int>> &m, int n) {
+        // backtracking 
+        string s = "" ;
+        if(m[0][0]==0){
+            return ans;
+        }
+        if(m[n-1][n-1]==0){
+            return ans;
+        }
+        solve(0,0,m,n,s);
+        return ans;
+    }
