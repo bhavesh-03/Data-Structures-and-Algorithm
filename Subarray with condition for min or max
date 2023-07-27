@@ -1,0 +1,20 @@
+
+for finding all subarray and for operation we will need this as brute force
+  O(n^3);
+
+// here subarray Minimum Question
+array - arr
+int n = arr.size();
+int mod = 1e9+7;
+int res =0;
+
+for(int end=0;end<n;end++){
+  for (int start =0;start<=end;start++){
+    int mi = INT_MIN;
+    for(int i= start;i<=end;i++){
+      mi=min(mi,arr[i])  
+    }
+    res=(res+mi)%mod
+  }
+} 
+return res
